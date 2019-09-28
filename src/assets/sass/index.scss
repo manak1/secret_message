@@ -1,0 +1,125 @@
+@import './tailwind';
+
+html,
+body {
+    font-size: 62.5%;
+}
+
+.header {
+    width: 100%;
+    border: 0 solid #e2e8f0;
+
+    &__wrapper {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    &__logo {
+        font-size: 2.5rem;
+
+    }
+
+    &__btn {
+        font-size: 1.7rem;
+        background-color: red;
+        padding: .8rem 1.4rem;
+        border-radius: 6px;
+        color: white;
+        font-weight: 600;
+    }
+
+}
+
+
+.hero {
+    background-image: url('../img/hero__wallpaper.jpg');
+
+    text-align: center;
+
+    &__wrapper {
+        padding: 8rem 4rem 5rem 4rem;
+        @extend .header__wrapper;
+    }
+
+
+    &__title {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 700;
+        font-size: 4.2rem;
+    }
+
+    &__img {
+        height: 330px;
+        text-align: center;
+    }
+
+    &__txt {
+        display: inline-block;
+        font-size: 2.2rem;
+        opacity: .8;
+    }
+
+    &__btn {
+        @extend .header__btn;
+        width: 25%;
+        border-radius: 30px;
+        padding: 1.3rem 1.4rem;
+
+    }
+
+}
+
+
+.about {
+    font-family: 'Noto Sans JP', sans-serif;
+
+    &__wrapper {
+        padding: 4rem;
+        @extend .header__wrapper;
+        text-align: center;
+    }
+
+
+    &__title {
+        font-size: 4rem;
+    }
+
+    &__user {
+        width: 10%;
+    }
+
+
+    &__user-name {
+        font-size: 1.1rem;
+    }
+
+    &__question {
+        text-align: left;
+        font-size: 1.8rem;
+    }
+
+    &__user-question {
+        width: 85%;
+        padding: 3%;
+        background-color: #7ACC40;
+        position: relative;
+        border: 40px;
+        margin-bottom: 100px;
+        border-radius: 20px;
+
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            border-left: 8px solid #eee;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            border-left-color: #7ACC40;
+            top: 14px;
+            right: -8px;
+            -webkit-transform: rotateX(35deg);
+            transform: rotateX(35deg);
+        }
+    }
+}
