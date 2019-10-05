@@ -3,11 +3,22 @@
 html,
 body {
     font-size: 62.5%;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+input::placeholder {
+    color: white;
+}
+
+
+/* Elements */
+.mb-reset {
+    margin-bottom: 0;
 }
 
 .header {
     width: 100%;
-    border: 0 solid #e2e8f0;
+    background-color: #fff;
 
     &__wrapper {
         max-width: 960px;
@@ -16,19 +27,37 @@ body {
 
     &__logo {
         font-size: 2.5rem;
+        color: #6C63FF;
 
+    }
+
+    &__logo-img {
+        width: 140px;
+
+    }
+
+    &__link {
+        display: inline-block;
     }
 
     &__btn {
         font-size: 1.7rem;
-        background-color: red;
+        background-color: #6C63FF;
         padding: .8rem 1.4rem;
         border-radius: 6px;
         color: white;
         font-weight: 600;
-    }
+        position: relative;
+        @extend .shadow-lg;
+        transition: .3s;
 
+        &:hover {
+            opacity: .7;
+        }
+
+    }
 }
+
 
 
 .hero {
@@ -37,13 +66,13 @@ body {
     text-align: center;
 
     &__wrapper {
-        padding: 8rem 4rem 5rem 4rem;
+        padding: 12rem 4rem 8rem 4rem;
         @extend .header__wrapper;
     }
 
 
     &__title {
-        font-family: 'Noto Sans JP', sans-serif;
+
         font-weight: 700;
         font-size: 4.2rem;
     }
@@ -64,7 +93,6 @@ body {
         width: 25%;
         border-radius: 30px;
         padding: 1.3rem 1.4rem;
-
     }
 
 }
@@ -72,22 +100,30 @@ body {
 
 .about {
     font-family: 'Noto Sans JP', sans-serif;
+    background-image: url('../img/about__wallpaper.jpg');
+    background-size: cover;
 
     &__wrapper {
         padding: 4rem;
         @extend .header__wrapper;
         text-align: center;
+        padding-bottom: 0;
+
     }
 
 
     &__title {
         font-size: 4rem;
+        font-weight: 700;
     }
 
     &__user {
         width: 10%;
     }
 
+    &__icon {
+        border-radius: 50%;
+    }
 
     &__user-name {
         font-size: 1.1rem;
@@ -96,6 +132,48 @@ body {
     &__question {
         text-align: left;
         font-size: 1.8rem;
+    }
+
+    &__answer {
+        @extend .about__question;
+    }
+
+
+
+    &__reply {}
+
+
+
+
+
+
+
+
+
+    &__answer-answer {
+        width: 85%;
+        padding: 3%;
+        background-color: #fff;
+        position: relative;
+        border: 40px;
+        margin-bottom: 100px;
+        border-radius: 20px;
+
+
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            border-right: 8px solid #eee;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            border-right-color: #fff;
+            top: 14px;
+            -webkit-transform: rotateX(35deg);
+            transform: rotateX(35deg);
+            left: -7px;
+        }
     }
 
     &__user-question {
@@ -122,4 +200,244 @@ body {
             transform: rotateX(35deg);
         }
     }
+}
+
+
+.cta {
+
+    &__box {
+        padding-top: 0;
+    }
+
+    &__item {
+        margin-top: 18px;
+    }
+
+    &__wrapper {
+        @extend .about__wrapper;
+    }
+
+    &__title {
+        @extend .about__title;
+    }
+
+    &__suggestion {
+        display: block;
+        font-size: 2rem;
+    }
+
+    &__icon {
+        width: 30%;
+    }
+
+
+    &__text {
+
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #333333;
+    }
+
+
+    &__subtext {
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-top: 8px;
+    }
+
+
+    &__text-box {
+        width: 100%;
+    }
+
+    &__btn {
+        @extend .hero__btn;
+        width: 20%;
+        display: inline-block;
+    }
+
+
+    &__call {
+        font-size: 3rem;
+    }
+
+    &__message {
+        display: block;
+
+    }
+
+    &__cta {
+        text-align: center;
+        padding-top: 10px;
+        margin: 0 auto;
+        background: linear-gradient(180deg, #ffffff 0%, hsl(197, 100%, 88%) 80%, #88DDFF);
+        padding-bottom: 10rem;
+
+    }
+
+    &__dot {
+        font-size: 2rem;
+        line-height: 2;
+    }
+
+
+
+}
+
+.footer {
+    background-color: #444444;
+    color: white;
+
+    &__wrapper {
+        @extend .cta__wrapper;
+    }
+
+    &__item {
+        display: inline-block;
+        width: 50%;
+    }
+
+    &__title {
+        font-size: 2rem;
+    }
+
+    &__lists {
+        display: inline-block;
+        text-align: left;
+
+    }
+
+
+
+    &__lists-item {
+        text-align: center;
+
+        &:hover {
+            color: #6C63FF;
+            transition: .3;
+        }
+
+
+    }
+
+    &__link {
+        display: inline-block;
+        text-align: left;
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+
+    &__desc {
+        font-size: 1.3rem;
+        margin-top: 10px;
+        line-height: 1.7;
+    }
+
+
+    &__copyright {
+        display: block;
+        font-size: 1.2rem;
+    }
+
+
+
+    &__sns {
+        font-size: 2.5rem;
+
+
+
+    }
+
+
+
+}
+
+/* 
+Fotter
+*/
+
+
+
+.footer__sns-list li:nth-child(1):hover {
+    color: #1DA1F2;
+    transition: .3s;
+}
+
+
+
+.footer__sns-list li:nth-child(2):hover {
+    color: black;
+    transition: .3s;
+
+}
+
+
+
+
+.footer__sns-list li:nth-child(3):hover {
+    color: #9BDAF3;
+    transition: .3s;
+
+}
+
+
+.app {
+    text-align: center;
+    background-image: url('../img/hero__wallpaper.jpg');
+
+    &__wrapper {
+        @extend .hero__wrapper;
+    }
+
+    &_messages {
+        @extend .about__answer;
+    }
+
+
+    &__guide {
+        @extend .about__user;
+    }
+
+    &__title {
+
+        @extend .hero__title;
+    }
+
+    &__icon {
+        @extend .about__icon;
+    }
+
+    &__guide-name {
+        @extend .about__user-name;
+    }
+
+    &__message-content {
+        @extend .about__answer-answer;
+    }
+
+    &__message-txt {
+        @extend .about__answer;
+    }
+
+    &__user-reply {
+        @extend .about__user-question;
+        font-size: 1.8rem;
+    }
+
+    &__reply-txt {
+        @extend .about__question;
+    }
+
+    &__user {
+        @extend .about__user;
+    }
+
+}
+
+
+
+
+.mb-reset {
+    margin-bottom: 0;
 }
