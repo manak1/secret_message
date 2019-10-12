@@ -7,7 +7,7 @@
         class="hero__txt 　max-w-sm mt-10"
       >アンゴウメッセは手軽にメッセージを暗号化できるサービスです。単純な暗号法を利用しているので大切な情報は内緒のままでお願いします</p>
 
-      <button class="hero__btn mt-16">ためしてみる</button>
+      <button onClick="location.href='/app'" class="hero__btn mt-16">ためしてみる</button>
     </div>
   </section>
 </template>

@@ -56,6 +56,61 @@ input::placeholder {
         }
 
     }
+
+    &__card {
+        background-color: white;
+        left: -200px;
+        border-radius: 10px;
+        box-shadow: 0 0 0 1px #E5E5E5;
+    }
+
+    &__user-name {
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: center;
+        border-bottom: 1px solid #E5E5E5;
+        color: #3D4852;
+        padding-bottom: 5px;
+    }
+
+    &__logout {
+        @extend .header__user-name;
+        border-top: 1px solid #E5E5E5;
+        padding-top: 5px;
+        font-weight: 400;
+        padding-bottom: 0;
+
+        &:hover {
+            width: 100%;
+            color: #6C63FF;
+        }
+
+        border-bottom: 0;
+    }
+
+
+    &__profile {
+
+        transition: .3s;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    &__link {
+        color: #3D4852;
+        font-size: 1.6rem;
+
+        &:hover {
+            width: 100%;
+            color: #6C63FF;
+        }
+    }
+
+
+
+
 }
 
 
@@ -69,6 +124,8 @@ input::placeholder {
         padding: 12rem 4rem 8rem 4rem;
         @extend .header__wrapper;
     }
+
+
 
 
     &__title {
@@ -94,6 +151,9 @@ input::placeholder {
         border-radius: 30px;
         padding: 1.3rem 1.4rem;
     }
+
+
+
 
 }
 
@@ -140,7 +200,6 @@ input::placeholder {
 
 
 
-    &__reply {}
 
 
 
@@ -207,6 +266,24 @@ input::placeholder {
 
     &__box {
         padding-top: 0;
+
+
+
+    }
+
+    &__text-box {
+        position: relative;
+
+        &:after {
+            content: "";
+            width: 5px;
+            display: block;
+            height: 130px;
+            background-color: #6C63FF;
+            position: absolute;
+            top: 0;
+            left: -30px;
+        }
     }
 
     &__item {
@@ -218,6 +295,9 @@ input::placeholder {
     }
 
     &__title {
+
+
+
         @extend .about__title;
     }
 
@@ -236,6 +316,8 @@ input::placeholder {
         font-size: 2.8rem;
         font-weight: 700;
         color: #333333;
+
+
     }
 
 
@@ -406,6 +488,7 @@ Fotter
 
     &__icon {
         @extend .about__icon;
+        width: 88px;
     }
 
     &__guide-name {

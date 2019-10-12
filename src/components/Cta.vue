@@ -23,7 +23,7 @@
         </div>
         <div class="cta__item flex items-center">
           <img src="../assets/img/cta__icon3.png" class="cta__icon" alt />
-          <div class="cta__box-text">
+          <div class="cta__text-box">
             <p class="text-left cta__text">恥ずかしい日記を暗号化する</p>
             <p class="cta__subtext text-left">
               絶賛中二病の諸君！悪いことは言わないから、今のうちに日記を暗号化しておくんだ！

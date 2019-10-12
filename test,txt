@@ -1,0 +1,64 @@
+created() {
+    firebase.auth().onAuthStateChanged(user => {
+      this.user = user ? user : false;
+      this.$store.commit("updateloginInfo", user);
+      var datarecived = "";
+      //if the user exists try to get encryption key
+      if (this.user) {
+        let docRef = firebase
+          .firestore()
+          .collection("users")
+          .doc(this.user.uid);
+
+        docRef
+          .get()
+          .then(function(doc) {
+            /* if the login first time  */
+
+            if (doc.data() == undefined) {
+              firestore()
+                .collection("users")
+                .doc(user.uid)
+                .set({
+                  key:
+                    "づすゆばcだぁえせもへこによxtじやそぷがぉlfんびrめqiぇsふみてぅかざきれぴuけoくぽぺいちをぢほろmぼewzvkおまずのうはnなgあたぐぬわごべつげらねりぎぶむゅとゃyぜpbっaぱぞるしょぃどひさdhでj"
+                });
+            } else {
+              /* set the key */
+              console.log("data exists", doc.data());
+            }
+          })
+          .catch(function(error) {
+            console.log(error);
+            /*    firebase
+              .firestore()
+              .collection("users")
+              .doc(user.uid)
+              .set({
+                key:
+                  "づすゆばcだぁえせもへこによxtじやそぷがぉlfんびrめqiぇsふみてぅかざきれぴuけoくぽぺいちをぢほろmぼewzvkおまずのうはnなgあたぐぬわごべつげらねりぎぶむゅとゃyぜpbっaぱぞるしょぃどひさdhでj"
+              }); */
+          });
+        console.log(datarecived);
+      }
+
+      /*
+   
+   if (this.user) {
+
+        this.chat = firebase
+          .firestore()
+          .collection("hunger")
+          .get()
+          .then(querySnapShot => {
+            querySnapShot.forEach(doc => {
+              console.log(doc.data());
+              const data = {};
+            });
+          });
+        console.log(this.chat);
+      } */
+
+      /*       const ref_message = firebase.database().ref("message"); */
+    });
+  }

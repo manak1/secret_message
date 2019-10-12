@@ -41452,6 +41452,55 @@ input::placeholder {
   opacity: .7;
 }
 
+.header__card {
+  background-color: white;
+  left: -200px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 0 1px #E5E5E5;
+          box-shadow: 0 0 0 1px #E5E5E5;
+}
+
+.header__user-name, .header__logout {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #E5E5E5;
+  color: #3D4852;
+  padding-bottom: 5px;
+}
+
+.header__logout {
+  border-top: 1px solid #E5E5E5;
+  padding-top: 5px;
+  font-weight: 400;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.header__logout:hover {
+  width: 100%;
+  color: #6C63FF;
+}
+
+.header__profile {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.header__profile:hover {
+  opacity: .8;
+}
+
+.header__link {
+  color: #3D4852;
+  font-size: 1.6rem;
+}
+
+.header__link:hover {
+  width: 100%;
+  color: #6C63FF;
+}
+
 .hero {
   background-image: url("../img/hero__wallpaper.jpg");
   text-align: center;
@@ -41565,6 +41614,21 @@ input::placeholder {
 
 .cta__box {
   padding-top: 0;
+}
+
+.cta__text-box {
+  position: relative;
+}
+
+.cta__text-box:after {
+  content: "";
+  width: 5px;
+  display: block;
+  height: 130px;
+  background-color: #6C63FF;
+  position: absolute;
+  top: 0;
+  left: -30px;
 }
 
 .cta__item {
@@ -41698,6 +41762,10 @@ Fotter
 .app {
   text-align: center;
   background-image: url("../img/hero__wallpaper.jpg");
+}
+
+.app__icon {
+  width: 88px;
 }
 
 .app__user-reply {

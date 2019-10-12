@@ -15,18 +15,18 @@
         </div>
 
         <div class="app__reply flex item-center justify-between mt-10">
-          <input v-model="message" placeholder="ここにメッセージを入力" class="app__user-reply" />
+          <input v-model="message" placeholder="ここに暗号化したいメッセージを入力" class="app__user-reply" />
 
           <div class="app__user">
-            <img src="../assets/img/about__icon1.svg" alt class="app__icon rounded-full" />
-            <p class="app__user-name mt2">あなた</p>
+            <img :src="user.photoURL" alt class="app__icon rounded-full" />
+            <p class="app__user-name mt2">{{user.displayName}}</p>
           </div>
         </div>
         <!-- End -->
         <div class="app__message flex item-center justify-between mt-10">
           <div class="app__guide">
             <img src="../assets/img/app__icon.svg" class="app__icon rounded-full" />
-            <p class="app__guide-name mt-2">賢いペンギン</p>
+            <p class="app__guide-name mt-2">賢いペンギン{{user.displayName}}</p>
           </div>
 
           <div class="app__message-content">
@@ -35,6 +35,7 @@
           </div>
         </div>
 
+        <h2>{{this.messages}}{{user}}</h2>
         <!-- end -->
       </div>
     </div>
@@ -42,7 +43,10 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 export default {
+  computed: mapState(["user", "messages"]),
+
   data: function() {
     return {
       message: "",
@@ -57,12 +61,19 @@ export default {
         reversed += tex.charAt(tex.length - i);
       }
       return reversed;
+    },
+    checkLoginInfo() {
+      if (this.user == null) {
+        this.$router.push({ name: "home" });
+      }
     }
   },
-
-  filters: {
-    test: function(test) {
-      return reverse(test);
+  created() {
+    this.checkLoginInfo();
+  },
+  watch: {
+    user: function() {
+      this.checkLoginInfo();
     }
   }
 };
