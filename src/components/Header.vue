@@ -28,7 +28,7 @@
                 </a>
               </li>
               <li class="mt-5 header__list">
-                <a href class="header__link">
+                <a href="/app2" class="header__link">
                   <i class="fas fa-key mr-3 header__card-icon"></i>解読研究所へ
                 </a>
               </li>
@@ -42,14 +42,13 @@
       </div>
       <a @click.prevent="logIn" class="header__btn" v-else>ログイン</a>
     </div>
-    <h2>{{encryptedKey}}</h2>
   </header>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
 export default {
-  computed: mapState(["user", "encryptedKey"]),
+  computed: mapState(["user", "keyInfo"]),
   data: function() {
     return {
       clicked: false
@@ -57,10 +56,15 @@ export default {
   },
   methods: {
     clickProfile() {
+      console.log(this.keyInfo);
       this.clicked = !this.clicked;
     },
     logOut() {
       this.$store.commit("logOut");
+      this.$store.commit("setKeyInfo", {});
+      /* 
+      this.$store.commit("setKeyInfo", {});
+      */
     },
     logIn() {
       this.$store.commit("logIn");

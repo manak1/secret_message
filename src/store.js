@@ -8,9 +8,8 @@ export default new Vuex.Store({
     state: {
         user: {},
         messages: "hello",
-        baseKey: "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz",
-        encryptedKey: ""
-
+        keyInfo: {},
+        baseKey: []
     },
 
     actions: {},
@@ -18,7 +17,7 @@ export default new Vuex.Store({
     // eslint-disable-next-line no-dupe-keys
     mutations: {
         updateloginInfo(state, payload) {
-            console.log(payload);
+
             state.user = payload;
         },
         updateEncryptKey(state, payload) {
@@ -33,9 +32,8 @@ export default new Vuex.Store({
             firebase.auth().signInWithPopup(provider);
         },
 
-        setKey(state, payload) {
-            console.log(payload);
-            state.encryptedKey = payload;
+        setKeyInfo(state, payload) {
+            state.keyInfo = payload;
 
         }
 

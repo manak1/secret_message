@@ -15,11 +15,11 @@
           </div>
         </div>
         <div class="cta__item flex items-center">
+          <img src="../assets/img/cta__icon2.png" class="cta__icon" alt />
           <div class="cta__text-box">
             <p class="cta__text text-left">誰にも知られたくない事をつぶやく</p>
             <p class="cta__subtext text-left">誰にも知られたくないけど呟きたい！！そう思ったことはないですか？ツイートを暗号化して思いっきり呟こう！！</p>
           </div>
-          <img src="../assets/img/cta__icon2.png" class="cta__icon" alt />
         </div>
         <div class="cta__item flex items-center">
           <img src="../assets/img/cta__icon3.png" class="cta__icon" alt />

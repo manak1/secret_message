@@ -1,7 +1,7 @@
 <template>
   <section class="app">
     <div class="app__wrapper">
-      <h2 class="app__title">暗号研究所</h2>
+      <h2 class="app__title">暗号研究所 - 暗号化部門</h2>
       <div class="app__messages">
         <div class="app__message flex item-center justify-between mt-20">
           <div class="app__guide">
@@ -10,7 +10,11 @@
           </div>
 
           <div class="app__message-content">
-            <p class="app__message-txt">暗号研究所へようこそ！ここではメッセージの暗号化を行っているぞ！</p>
+            <p class="app__message-txt">
+              暗号研究所へようこそ！ここではメッセージの暗号化を行っているぞ！
+              <br />君の解読キーは
+              <span style="color:red">{{keyInfo.code}}</span>だよ～ メッセージを呼んでほしい相手に教えてね
+            </p>
           </div>
         </div>
 
@@ -30,12 +34,11 @@
           </div>
 
           <div class="app__message-content">
-            <p class="app__message-txt" v-if="message">{{this.reverse(this.message)}}</p>
+            <p class="app__message-txt" v-if="message">{{this.encrypt(this.message)}}</p>
             <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
           </div>
         </div>
 
-        <h2>{{this.messages}}{{user}}</h2>
         <!-- end -->
       </div>
     </div>
@@ -45,12 +48,13 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 export default {
-  computed: mapState(["user", "messages"]),
+  computed: mapState(["user", "messages", "keyInfo"]),
 
   data: function() {
     return {
       message: "",
-      empty: false
+      empty: false,
+      validKey: false
     };
   },
 
@@ -66,6 +70,30 @@ export default {
       if (this.user == null) {
         this.$router.push({ name: "home" });
       }
+    },
+
+    encrypt(message) {
+      let encryptedMessage = "";
+      let messageChar = "";
+      let baseKey = Array.from(
+        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz"
+      );
+
+      for (let i = 0; i <= message.length - 1; i++) {
+        messageChar = this.keyInfo.key[baseKey.indexOf(message.charAt(i))];
+
+        if (messageChar == undefined) {
+          messageChar = message.charAt(i);
+        }
+        encryptedMessage += messageChar;
+      }
+
+      for (let j = 0; j <= message.length - 1; j++) {
+        messageChar += baseKey[this.keyInfo.key.indexOf(message.charAt(j))];
+      }
+      console.log("your text is ", messageChar);
+
+      return encryptedMessage;
     }
   },
   created() {

@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import AboutPage from "./views/AboutPage.vue";
 import AppPage from "./views/AppPage.vue";
+import AppPage2 from './views/AppPage2.vue';
 Vue.use(Router);
 export default new Router({
   mode: "history",
@@ -21,6 +22,11 @@ export default new Router({
       path: "/app",
       name: "app",
       component: AppPage
+    },
+    {
+      path: '/app2',
+      name: 'app2',
+      component: AppPage2
     }
   ]
 });

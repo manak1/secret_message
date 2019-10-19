@@ -12,6 +12,7 @@
     <h2>{{this.user.displayName}}</h2>
 
     <button @click="checkLoggedIn">チェックログインステート</button>-->
+    <h2>{{this.keyInfo}}</h2>
     <Footer />
   </div>
 </template>
@@ -24,6 +25,8 @@ import Cta from "@/components/Cta.vue";
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import firebase from "firebase";
+import { mapState } from "vuex";
+import Preloader from '@/components/Preloader.vue';
 
 export default {
   components: {
@@ -35,108 +38,13 @@ export default {
   },
   data() {
     return {
-      user: {},
       chat: ["a"],
-      baseKey: this.$store.state.baseKey,
-      encryptedKey: this.$store.state.encryptedKey
+      baseKey: [
+        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz"
+      ]
     };
   },
-  computed: {
-    userName() {
-      return this.$store.state.user.name;
-    }
-  },
-
-  created() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.user = user ? user : false;
-      this.$store.commit("updateloginInfo", user);
-    });
-
-    /* for reference */
-
-    /*  console.log(this.user);
-    const docRef = firebase
-      .firestore()
-      .collection("users")
-      .doc(this.user.uid); */
-
-    /*    if (this.user) {
-      docRef.get().then(function(doc) {
-        console.log(doc.data());
-      });
-    } */
-  },
-  watch: {
-    user: function() {
-      /* for reference */
-      let self = this;
-
-      /* If the user is looged in try to get data */
-      if (this.user.uid != undefined) {
-        const docRef = firebase
-          .firestore()
-          .collection("users")
-          .doc(this.user.uid);
-        docRef
-          .get()
-          .then(function(doc) {
-            if (doc.data() != undefined) {
-              self.$store.commit("setKey", doc.data().key);
-            } else {
-              console.log("data not found");
-            }
-          })
-          .catch(function(error) {
-            console.log(error, "nanka");
-          });
-      }
-
-      if (this.input == undefined && this.user.uid != undefined) {
-        console.log("input exists");
-      }
-    }
-  },
-  methods: {
-    doLogin() {
-      const provider = new firebase.auth.TwitterAuthProvider();
-      firebase.auth().signInWithPopup(provider);
-    },
-
-    doLogout() {
-      firebase.auth().signOut();
-    },
-
-    checkLoggedIn() {
-      firebase.auth().onAuthStateChanged(user => {
-        this.user = user ? user : false;
-      });
-      console.log(this.user);
-    },
-
-    setKey(key) {
-      this.$store.commit("setKey", key);
-    },
-
-    postInfo() {
-      /*   firebase
-        .database()
-        .ref("userInfo")
-        .push({
-          key: "abcdef",
-          message: "success hello manaki",
-          name: this.user.displayName,
-          id: this.user.uid
-        }); */
-      firebase
-        .firestore()
-        .collection("users")
-        .doc("test")
-        .set({
-          name: "manaki2"
-        });
-    }
-  }
+  computed: mapState(["user", "keyInfo"])
 };
 </script>
 
