@@ -69,7 +69,6 @@ export default {
   data: function() {
     return {
       message: "",
-      empty: false,
       decryptKey: [],
       key: "",
       validKey: false
@@ -77,20 +76,14 @@ export default {
   },
 
   methods: {
-    reverse(tex) {
-      let reversed = "";
-      for (let i = 0; i <= tex.length; i++) {
-        reversed += tex.charAt(tex.length - i);
-      }
-      v;
-      return reversed;
-    },
+    //if user isn't logged in return them to home page
     checkLoginInfo() {
       if (this.user == null) {
         this.$router.push({ name: "home" });
       }
     },
 
+    //check if the key exists in collection
     checkKey() {
       let self = this;
       const docRef = firebase

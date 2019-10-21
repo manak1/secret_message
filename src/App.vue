@@ -18,13 +18,14 @@ export default {
     return {
       chat: ["a"],
       baseKey: [
-        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz"
+        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz123456789"
       ],
       user: this.$store.state.user,
       keyInfo: this.$store.state.keyInfo
     };
   },
   created() {
+    //update user info
     firebase.auth().onAuthStateChanged(user => {
       this.user = user ? user : false;
       this.$store.commit("updateloginInfo", user);
@@ -45,17 +46,20 @@ export default {
         docRef
           .get()
           .then(function(doc) {
+            //if the key info exists
             if (doc.data() != undefined) {
               console.log("send keyinfo data");
               self.$store.commit("setKeyInfo", doc.data());
-            } else {
+            }
+            //if its useres initall login
+            else {
               console.log("set to initial");
               self.$store.commit("setKeyInfo", "initial");
               console.log(self.$store.state.keyInfo);
             }
           })
+          /* After the data hasbeen changed. */
           .then(function() {
-            console.log(self.$store.state.keyInfo, "wassaaaaa");
             if (self.$store.state.keyInfo == "initial" && self.user.uid != "") {
               //create a new key
               console.log(
@@ -63,13 +67,12 @@ export default {
                 "isnt this what you need?"
               );
 
-              console.log("first time");
-
+              //create a new keu
               const newKey = self.createNewKey();
               //create a  new code
               const newCode = Math.random()
                 .toString(36)
-                .slice(-3);
+                .slice(-4);
 
               firebase
                 .firestore()
@@ -91,7 +94,7 @@ export default {
             }
           })
           .catch(function(error) {
-            console.log(error);
+            console.log(error, "something wrong happened");
           });
       }
 
@@ -104,34 +107,38 @@ export default {
     } */
   },
   methods: {
+    /* Show user login scren */
     doLogin() {
       const provider = new firebase.auth.TwitterAuthProvider();
       firebase.auth().signInWithPopup(provider);
     },
 
-    checkData() {
-      console.log(this.keyInfo);
-    },
+    /* Log out user update user data in store */
     doLogout() {
       console.log("i will sign out");
       firebase.auth().signOut();
       this.$store.commit("setKeyInfo", " ");
     },
 
+    /* Check if user has logged in or not */
     checkLoggedIn() {
       firebase.auth().onAuthStateChanged(user => {
         this.user = user ? user : false;
       });
     },
 
+    /* 
     setKey(key) {
       this.$store.commit("setKeyInfo", key);
     },
+*/
 
-    //fisher-yates shuffle algorithm
+    //randomly shuffle the key table and return it
+    //fisher-yates shuffle algorithm used
+
     createNewKey() {
       let a =
-        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz";
+        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz123456789";
       a = Array.from(a);
       console.log(a);
       var j, x, i;

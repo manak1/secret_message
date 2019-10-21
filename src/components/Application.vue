@@ -59,19 +59,12 @@ export default {
   },
 
   methods: {
-    reverse(tex) {
-      let reversed = "";
-      for (let i = 0; i <= tex.length; i++) {
-        reversed += tex.charAt(tex.length - i);
-      }
-      return reversed;
-    },
     checkLoginInfo() {
       if (this.user == null) {
         this.$router.push({ name: "home" });
       }
     },
-
+    //encrypt message based on key info.
     encrypt(message) {
       let encryptedMessage = "";
       let messageChar = "";
@@ -96,6 +89,7 @@ export default {
       return encryptedMessage;
     }
   },
+  //check user info when created.
   created() {
     this.checkLoginInfo();
   },
@@ -107,5 +101,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.app__message-content {
+  margin-bottom: 50px;
+}
+
+.app__user-reply {
+  margin-bottom: 50px;
+}
+
+.app__submit {
+  align-items: baseline;
+}
 </style>
