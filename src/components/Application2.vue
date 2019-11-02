@@ -18,39 +18,61 @@
           </div>
         </div>
 
-        <div v-if="this.validKey" class="app__reply flex item-center justify-between mt-10">
-          <input v-model="message" placeholder="ここに解読したいメッセージを入力" class="app__user-reply" />
+        <transition name="fade">
+          <div v-if="this.validKey" class="app__reply flex item-center justify-between mt-10">
+            <input v-model="message" placeholder="ここに解読したいメッセージを入力" class="app__user-reply" />
 
-          <div class="app__user">
-            <img :src="user.photoURL" alt class="app__icon rounded-full" />
-            <p class="app__user-name mt2">{{user.displayName}}</p>
+            <div class="app__user">
+              <img :src="user.photoURL" alt class="app__icon rounded-full" />
+              <p class="app__user-name mt2">{{user.displayName}}</p>
+            </div>
           </div>
-        </div>
+        </transition>
 
-        <div v-else class="app__reply flex items-baseline justify-between mt-10">
-          <input v-model="key" placeholder="ここに鍵を入力してね！" class="app__user-reply" />
+        <div v-if="!validKey" class="app__reply flex items-baseline justify-center mx-auto mt-10">
+          <input
+            type="password"
+            v-model="key"
+            placeholder="ここに鍵を入力してね！"
+            class="app__user-reply app__input"
+          />
 
           <div class="app__user app__submit">
-            <!--   <img :src="user.photoURL" alt class="app__icon rounded-full" />
-            <p class="app__user-name mt2">{{user.displayName}}</p>-->
             <button @click="checkKey" class="app__btn">
               <i class="fas fa-paper-plane mr-2"></i>送信
             </button>
           </div>
         </div>
 
-        <!-- End -->
-        <div v-if="validKey" class="app__message flex item-center justify-between mt-10">
-          <div class="app__guide">
-            <img src="../assets/img/app__icon1.svg" class="app__icon rounded-full" />
-            <p class="app__guide-name mt-2">賢いペンギン{{user.displayName}}</p>
-          </div>
+        <transition name="fade">
+          <div v-if="wrongKey" class="app__message flex item-center justify-between mt-20">
+            <div class="app__guide">
+              <img src="../assets/img/app__icon1.svg" class="app__icon rounded-full" />
+              <p class="app__guide-name mt-2">賢いペンギン</p>
+            </div>
 
-          <div class="app__message-content">
-            <p class="app__message-txt" v-if="message">{{this.decrypt(this.message)}}</p>
-            <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
+            <div class="app__message-content">
+              <p class="app__message-txt">
+                どうやら鍵が間違っているみたいだ！
+                <br />入力ミスをしていないか確認してみてね！
+              </p>
+            </div>
           </div>
-        </div>
+        </transition>
+        <!-- End -->
+        <transition name="fade">
+          <div v-if="validKey" class="app__message flex item-center justify-between mt-10">
+            <div class="app__guide">
+              <img src="../assets/img/app__icon1.svg" class="app__icon rounded-full" />
+              <p class="app__guide-name mt-2">賢いペンギン{{user.displayName}}</p>
+            </div>
+
+            <div class="app__message-content">
+              <p class="app__message-txt" v-if="message">{{this.decrypt(this.message)}}</p>
+              <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
+            </div>
+          </div>
+        </transition>
 
         <!-- end -->
       </div>
@@ -71,7 +93,8 @@ export default {
       message: "",
       decryptKey: [],
       key: "",
-      validKey: false
+      validKey: false,
+      wrongKey: false
     };
   },
 
@@ -95,10 +118,14 @@ export default {
         if (doc.data() != undefined) {
           self.validKey = true;
           self.decryptKey = doc.data().key;
+          self.wrongKey = false;
+        } else {
+          self.wrongKey = true;
         }
       });
     },
 
+    //decrypt message based on the key
     decrypt(message) {
       let baseKey = Array.from(
         "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz"
@@ -128,6 +155,9 @@ export default {
   margin-bottom: 50px;
 }
 
+.app__messages {
+  margin-top: 20px;
+}
 .app__user-reply {
   margin-bottom: 50px;
 }
@@ -146,5 +176,18 @@ export default {
   font-weight: 600;
   position: relative;
   transition: 0.3s;
+}
+
+.app__input {
+  max-width: 400px;
+  padding: 2%;
+  margin-right: 20px;
+}
+
+.fade-enter-active {
+  transition: opacity 0.7s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

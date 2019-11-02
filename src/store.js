@@ -12,37 +12,29 @@ export default new Vuex.Store({
         baseKey: []
     },
 
-    actions: {},
-
-    // eslint-disable-next-line no-dupe-keys
     mutations: {
+        //update user state
         updateloginInfo(state, payload) {
 
             state.user = payload;
         },
-        updateEncryptKey(state, payload) {
-            state.encryptKey = payload;
-        },
+
+        //update user state
         logOut() {
             firebase.auth().signOut();
         },
 
+        //show login screen
         logIn() {
             const provider = new firebase.auth.TwitterAuthProvider();
             firebase.auth().signInWithPopup(provider);
         },
 
+        //update keyInfo state
         setKeyInfo(state, payload) {
             state.keyInfo = payload;
 
         }
 
-        /*     checkUserState() {
-            firebase.auth().onAuthStateChanged(user => {
-                this.user = user ? user : false;
-            });
-            console.log(this.user, 'called from store');
-        }
- */
     }
 });

@@ -30,7 +30,7 @@
         <div class="app__message flex item-center justify-between mt-10">
           <div class="app__guide">
             <img src="../assets/img/app__icon.svg" class="app__icon rounded-full" />
-            <p class="app__guide-name mt-2">賢いペンギン{{user.displayName}}</p>
+            <p class="app__guide-name mt-2">賢いペンギン</p>
           </div>
 
           <div class="app__message-content">
@@ -102,8 +102,20 @@ export default {
 </script>
 
 <style scoped>
+/* app 690px */
+
+@media only screen and (max-width: 690px) {
+  .app__reply {
+    margin-top: 0;
+  }
+}
+
 .app__message-content {
   margin-bottom: 50px;
+}
+
+.app__messages {
+  margin-top: 20px;
 }
 
 .app__user-reply {
@@ -112,5 +124,13 @@ export default {
 
 .app__submit {
   align-items: baseline;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

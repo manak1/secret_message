@@ -41386,6 +41386,7 @@ video {
   }
 }
 
+/* break points */
 html,
 body {
   font-size: 62.5%;
@@ -41510,14 +41511,33 @@ input::placeholder {
   padding: 12rem 4rem 8rem 4rem;
 }
 
+@media (max-width: 690px) {
+  .hero__wrapper, .app__wrapper {
+    padding: 12rem 1rem 6rem 1rem;
+  }
+}
+
 .hero__title, .app__title {
   font-weight: 700;
   font-size: 4.2rem;
 }
 
+@media (max-width: 690px) {
+  .hero__title, .app__title {
+    font-size: 2.8rem;
+  }
+}
+
 .hero__img {
   height: 330px;
   text-align: center;
+}
+
+@media (max-width: 690px) {
+  .hero__img {
+    margin-top: 0;
+    height: 300px;
+  }
 }
 
 .hero__txt {
@@ -41526,10 +41546,24 @@ input::placeholder {
   opacity: .8;
 }
 
+@media (max-width: 690px) {
+  .hero__txt {
+    font-size: 1.8rem;
+  }
+}
+
 .hero__btn, .cta__btn {
   width: 25%;
   border-radius: 30px;
   padding: 1.3rem 1.4rem;
+}
+
+@media (max-width: 690px) {
+  .hero__btn, .cta__btn {
+    width: 65%;
+    font-size: 1.6rem;
+    padding: 1rem 1.1rem;
+  }
 }
 
 .about {
@@ -41544,13 +41578,31 @@ input::placeholder {
   padding-bottom: 0;
 }
 
+@media (max-width: 690px) {
+  .about__wrapper, .cta__wrapper, .footer__wrapper {
+    padding: 4rem .5rem 6rem .5rem;
+  }
+}
+
 .about__title, .cta__title {
   font-size: 4rem;
   font-weight: 700;
 }
 
+@media (max-width: 690px) {
+  .about__title, .cta__title {
+    font-size: 2.8rem;
+  }
+}
+
 .about__user, .app__guide, .app__user {
   width: 10%;
+}
+
+@media (max-width: 690px) {
+  .about__user, .app__guide, .app__user {
+    width: 15%;
+  }
 }
 
 .about__icon, .app__icon {
@@ -41559,11 +41611,35 @@ input::placeholder {
 
 .about__user-name, .app__guide-name {
   font-size: 1.1rem;
+  text-align: center;
 }
 
-.about__question, .about__answer, .app_messages, .app__message-txt, .app__reply-txt {
+@media (max-width: 690px) {
+  .about__user-name, .app__guide-name {
+    width: 80px;
+    position: relative;
+    font-size: 1rem;
+    left: -5px;
+  }
+}
+
+.about__question, .about__answer, .app__message, .app__message-txt, .app__reply-txt {
   text-align: left;
   font-size: 1.8rem;
+}
+
+@media (max-width: 690px) {
+  .about__question, .about__answer, .app__message, .app__message-txt, .app__reply-txt {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 690px) {
+  .about__question-guest, .about__answer, .app__message, .app__message-txt, .app__reply {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
 }
 
 .about__answer-answer, .app__message-content {
@@ -41574,6 +41650,14 @@ input::placeholder {
   border: 40px;
   margin-bottom: 100px;
   border-radius: 20px;
+}
+
+@media (max-width: 690px) {
+  .about__answer-answer, .app__message-content {
+    width: 75%;
+    margin-top: 1%;
+    margin-bottom: 50px;
+  }
 }
 
 .about__answer-answer::before, .app__message-content::before {
@@ -41599,6 +41683,13 @@ input::placeholder {
   border-radius: 20px;
 }
 
+@media (max-width: 690px) {
+  .about__user-question, .app__user-reply {
+    width: 75%;
+    margin-bottom: 50px;
+  }
+}
+
 .about__user-question::before, .app__user-reply::before {
   content: '';
   position: absolute;
@@ -41616,6 +41707,14 @@ input::placeholder {
   padding-top: 0;
 }
 
+@media (max-width: 690px) {
+  .cta__box {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 0;
+  }
+}
+
 .cta__text-box {
   position: relative;
 }
@@ -41631,8 +41730,38 @@ input::placeholder {
   left: -30px;
 }
 
+@media (max-width: 690px) {
+  .cta__text-box:after {
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    margin-top: 4px;
+    top: 110%;
+  }
+}
+
 .cta__item {
   margin-top: 18px;
+}
+
+@media (max-width: 690px) {
+  .cta__item {
+    padding: 2rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .cta__item:nth-child(1) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 690px) {
+  .cta__wrapper, .footer__wrapper {
+    padding-bottom: 0;
+  }
 }
 
 .cta__suggestion {
@@ -41644,16 +41773,38 @@ input::placeholder {
   width: 30%;
 }
 
+@media (max-width: 690px) {
+  .cta__icon {
+    width: 70%;
+    display: block;
+  }
+}
+
 .cta__text {
   font-size: 2.8rem;
   font-weight: 700;
   color: #333333;
 }
 
+@media (max-width: 690px) {
+  .cta__text {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
 .cta__subtext {
   font-size: 1.8rem;
   font-weight: 400;
   margin-top: 8px;
+}
+
+@media (max-width: 690px) {
+  .cta__subtext {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 10px;
+  }
 }
 
 .cta__text-box {
@@ -41665,8 +41816,23 @@ input::placeholder {
   display: inline-block;
 }
 
+@media (max-width: 690px) {
+  .cta__btn {
+    width: 65%;
+    font-size: 1.6rem;
+    padding: 1rem 1.1rem;
+  }
+}
+
 .cta__call {
   font-size: 3rem;
+}
+
+@media (max-width: 690px) {
+  .cta__call {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
 }
 
 .cta__message {
@@ -41682,6 +41848,13 @@ input::placeholder {
   padding-bottom: 10rem;
 }
 
+@media (max-width: 690px) {
+  .cta__cta {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+  }
+}
+
 .cta__dot {
   font-size: 2rem;
   line-height: 2;
@@ -41692,9 +41865,28 @@ input::placeholder {
   color: white;
 }
 
+@media (max-width: 690px) {
+  .footer__box {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .footer__item {
   display: inline-block;
   width: 50%;
+}
+
+@media (max-width: 690px) {
+  .footer__item {
+    width: 100%;
+    padding: 0 3rem 0 3rem;
+  }
+  .footer__item:nth-child(2) {
+    margin-top: 25px;
+  }
 }
 
 .footer__title {
@@ -41764,12 +41956,31 @@ Fotter
   background-image: url("../img/hero__wallpaper.jpg");
 }
 
+@media (max-width: 690px) {
+  .app__message {
+    margin-top: 0;
+  }
+}
+
 .app__icon {
   width: 88px;
 }
 
 .app__user-reply {
   font-size: 1.8rem;
+}
+
+.app__user-reply::before {
+  content: "testing this hsit";
+  display: block;
+  width: 400px;
+  height: 400px;
+}
+
+@media (max-width: 690px) {
+  .app__user-reply {
+    font-size: 1.3rem;
+  }
 }
 
 .mb-reset {

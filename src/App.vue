@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Preloader v-if="show"></Preloader>
     <Header />
     <router-view />
   </div>
@@ -10,31 +11,35 @@ import "./assets/css/tailwind.css";
 import "./assets/css/index.css";
 import firebase from "firebase";
 import Header from "@/components/Header.vue";
+import Preloader from "@/components/Preloader.vue";
 import { mapState, mapMutations } from "vuex";
 export default {
-  components: { Header },
+  components: { Header, Preloader },
   computed: mapState(["messages"]),
   data() {
     return {
       chat: ["a"],
       baseKey: [
-        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz123456789"
+        "いz7んhつうvびwろおめごgぱcぉ6ひあじわぞeぐfらnxざaやもmとちょrどだま8oよたぃねぇずlゅぺけでふほぶはぼぴぽすさぎづき2ぅへむそっぷ14のjゆりてげdsがゃにぬくpぢえtべ5なれかyしbiをぜぁこみせばるk3uq9"
       ],
       user: this.$store.state.user,
-      keyInfo: this.$store.state.keyInfo
+      keyInfo: this.$store.state.keyInfo,
+      show: false
     };
   },
   created() {
     //update user info
+    this.showToggle();
     firebase.auth().onAuthStateChanged(user => {
       this.user = user ? user : false;
       this.$store.commit("updateloginInfo", user);
     });
   },
 
+  mounted() {},
   watch: {
     user: function() {
-      /* for reference */
+      /* To access variables in vue*/
       let self = this;
 
       /* If the user is looged in try to get data */
@@ -48,25 +53,17 @@ export default {
           .then(function(doc) {
             //if the key info exists
             if (doc.data() != undefined) {
-              console.log("send keyinfo data");
               self.$store.commit("setKeyInfo", doc.data());
             }
             //if its useres initall login
             else {
-              console.log("set to initial");
               self.$store.commit("setKeyInfo", "initial");
-              console.log(self.$store.state.keyInfo);
             }
           })
+
           /* After the data hasbeen changed. */
           .then(function() {
             if (self.$store.state.keyInfo == "initial" && self.user.uid != "") {
-              //create a new key
-              console.log(
-                self.$store.state.keyInfo,
-                "isnt this what you need?"
-              );
-
               //create a new keu
               const newKey = self.createNewKey();
               //create a  new code
@@ -100,11 +97,6 @@ export default {
 
       //if its users initial login
     }
-
-    /* 
-    keyInfo: function() {
-      console.log("key info data changed", this.keyInfo);
-    } */
   },
   methods: {
     /* Show user login scren */
@@ -127,6 +119,11 @@ export default {
       });
     },
 
+    showToggle() {
+      window.onload = function() {
+        this.show = false;
+      };
+    },
     /* 
     setKey(key) {
       this.$store.commit("setKeyInfo", key);
@@ -135,12 +132,8 @@ export default {
 
     //randomly shuffle the key table and return it
     //fisher-yates shuffle algorithm used
-
     createNewKey() {
-      let a =
-        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz123456789";
-      a = Array.from(a);
-      console.log(a);
+      let a = Array.from(this.baseKey[0]);
       var j, x, i;
       for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));

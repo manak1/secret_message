@@ -1,5 +1,17 @@
 @import './tailwind';
 
+/* break points */
+$smartPhone:'690px';
+
+
+
+@mixin sm {
+    @media (max-width:($smartPhone)) {
+        @content;
+    }
+}
+
+
 html,
 body {
     font-size: 62.5%;
@@ -19,6 +31,8 @@ input::placeholder {
 .header {
     width: 100%;
     background-color: #fff;
+
+
 
     &__wrapper {
         max-width: 960px;
@@ -123,6 +137,10 @@ input::placeholder {
     &__wrapper {
         padding: 12rem 4rem 8rem 4rem;
         @extend .header__wrapper;
+
+        @include sm {
+            padding: 12rem 1rem 6rem 1rem;
+        }
     }
 
 
@@ -132,17 +150,31 @@ input::placeholder {
 
         font-weight: 700;
         font-size: 4.2rem;
+
+        @include sm {
+            font-size: 2.8rem;
+        }
+
     }
 
     &__img {
         height: 330px;
         text-align: center;
+
+        @include sm {
+            margin-top: 0;
+            height: 300px;
+        }
     }
 
     &__txt {
         display: inline-block;
         font-size: 2.2rem;
         opacity: .8;
+
+        @include sm {
+            font-size: 1.8rem;
+        }
     }
 
     &__btn {
@@ -150,6 +182,13 @@ input::placeholder {
         width: 25%;
         border-radius: 30px;
         padding: 1.3rem 1.4rem;
+
+        @include sm {
+            width: 65%;
+            font-size: 1.6rem;
+            padding: 1rem 1.1rem;
+
+        }
     }
 
 
@@ -169,16 +208,29 @@ input::placeholder {
         text-align: center;
         padding-bottom: 0;
 
+
+        @include sm {
+            padding: 4rem .5rem 6rem .5rem;
+        }
+
     }
 
 
     &__title {
         font-size: 4rem;
         font-weight: 700;
+
+        @include sm {
+            font-size: 2.8rem;
+        }
     }
 
     &__user {
         width: 10%;
+
+        @include sm {
+            width: 15%;
+        }
     }
 
     &__icon {
@@ -187,27 +239,38 @@ input::placeholder {
 
     &__user-name {
         font-size: 1.1rem;
+        text-align: center;
+
+        @include sm {
+            width: 80px;
+            position: relative;
+            font-size: 1rem;
+            left: -5px;
+        }
     }
 
     &__question {
         text-align: left;
         font-size: 1.8rem;
+
+        @include sm {
+            font-size: 1.5rem;
+        }
     }
 
     &__answer {
         @extend .about__question;
     }
 
+    &__question-guest {
+        @include sm {
+            justify-content: space-evenly;
+        }
+    }
 
-
-
-
-
-
-
-
-
-
+    &__answer {
+        @extend .about__question-guest;
+    }
 
     &__answer-answer {
         width: 85%;
@@ -219,6 +282,11 @@ input::placeholder {
         border-radius: 20px;
 
 
+        @include sm {
+            width: 75%;
+            margin-top: 1%;
+            margin-bottom: 50px;
+        }
 
 
         &::before {
@@ -244,7 +312,10 @@ input::placeholder {
         margin-bottom: 100px;
         border-radius: 20px;
 
-
+        @include sm {
+            width: 75%;
+            margin-bottom: 50px;
+        }
 
         &::before {
             content: '';
@@ -267,8 +338,11 @@ input::placeholder {
     &__box {
         padding-top: 0;
 
-
-
+        @include sm {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 0;
+        }
     }
 
     &__text-box {
@@ -282,22 +356,46 @@ input::placeholder {
             background-color: #6C63FF;
             position: absolute;
             top: 0;
+
             left: -30px;
+
+            @include sm {
+                left: 0;
+                position: absolute;
+                width: 100%;
+                height: 5px;
+                margin-top: 4px;
+                top: 110%;
+            }
         }
+
+
+
     }
 
     &__item {
         margin-top: 18px;
+
+        @include sm {
+            &:nth-child(1) {
+                margin-top: 0;
+            }
+
+            padding:2rem;
+
+            flex-direction: column;
+        }
     }
 
     &__wrapper {
         @extend .about__wrapper;
+
+        @include sm {
+            padding-bottom: 0;
+        }
     }
 
     &__title {
-
-
-
         @extend .about__title;
     }
 
@@ -308,6 +406,11 @@ input::placeholder {
 
     &__icon {
         width: 30%;
+
+        @include sm {
+            width: 70%;
+            display: block;
+        }
     }
 
 
@@ -317,6 +420,10 @@ input::placeholder {
         font-weight: 700;
         color: #333333;
 
+        @include sm {
+            text-align: center;
+            font-size: 2rem;
+        }
 
     }
 
@@ -325,6 +432,12 @@ input::placeholder {
         font-size: 1.8rem;
         font-weight: 400;
         margin-top: 8px;
+
+        @include sm {
+            font-size: 1.6rem;
+            text-align: center;
+            margin-top: 10px;
+        }
     }
 
 
@@ -336,11 +449,23 @@ input::placeholder {
         @extend .hero__btn;
         width: 20%;
         display: inline-block;
+
+        @include sm {
+            width: 65%;
+            font-size: 1.6rem;
+            padding: 1rem 1.1rem;
+
+        }
     }
 
 
     &__call {
         font-size: 3rem;
+
+        @include sm {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
     }
 
     &__message {
@@ -355,6 +480,10 @@ input::placeholder {
         background: linear-gradient(180deg, #ffffff 0%, hsl(197, 100%, 88%) 80%, #88DDFF);
         padding-bottom: 10rem;
 
+        @include sm {
+            padding-top: 8rem;
+            padding-bottom: 6rem;
+        }
     }
 
     &__dot {
@@ -372,11 +501,28 @@ input::placeholder {
 
     &__wrapper {
         @extend .cta__wrapper;
+
+    }
+
+    &__box {
+        @include sm {
+            flex-direction: column;
+        }
     }
 
     &__item {
         display: inline-block;
         width: 50%;
+
+        @include sm {
+            width: 100%;
+
+            padding: 0 3rem 0 3rem;
+
+            &:nth-child(2) {
+                margin-top: 25px;
+            }
+        }
     }
 
     &__title {
@@ -472,8 +618,14 @@ Fotter
         @extend .hero__wrapper;
     }
 
-    &_messages {
+    &_messages {}
+
+    &__message {
         @extend .about__answer;
+
+        @include sm {
+            margin-top: 0;
+        }
     }
 
 
@@ -497,6 +649,8 @@ Fotter
 
     &__message-content {
         @extend .about__answer-answer;
+
+        @include sm {}
     }
 
     &__message-txt {
@@ -506,6 +660,20 @@ Fotter
     &__user-reply {
         @extend .about__user-question;
         font-size: 1.8rem;
+
+
+        &::before {
+
+            content: "testing this hsit";
+            display: block;
+            width: 400px;
+            height: 400px;
+
+        }
+
+        @include sm {
+            font-size: 1.3rem;
+        }
     }
 
     &__reply-txt {
@@ -514,6 +682,10 @@ Fotter
 
     &__user {
         @extend .about__user;
+    }
+
+    &__reply {
+        @extend .about__question-guest;
     }
 
 
