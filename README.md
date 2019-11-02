@@ -1,4 +1,4 @@
-# secret_message
+# 暗号メッセ
 
 ## Project setup
 ```
