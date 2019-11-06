@@ -94,7 +94,9 @@ export default {
       decryptKey: [],
       key: "",
       validKey: false,
-      wrongKey: false
+      wrongKey: false,
+      baseKey:
+        "いz7んhつうvびwろおめごgぱcぉ6ひあじわぞeぐfらnxざaやもmとちょrどだま8oよたぃねぇずlゅぺけでふほぶはぼぴぽすさぎづき2ぅへむそっぷ14のjゆりてげdsがゃにぬくpぢえtべ5なれかyしbiをぜぁこみせばるk3uq9"
     };
   },
 
@@ -127,10 +129,8 @@ export default {
 
     //decrypt message based on the key
     decrypt(message) {
-      let baseKey = Array.from(
-        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz"
-      );
-
+      let baseKey = Array.from(this.baseKey);
+      console.log(this.decryptKey.toString(), "testing");
       let messageChar = "";
       let decoded = "";
       for (let i = 0; i < message.length; i++) {

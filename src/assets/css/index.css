@@ -42029,6 +42029,10 @@ Fotter
   background-image: url("../img/hero__wallpaper.jpg");
 }
 
+.profile__wrapper {
+  padding-bottom: 13.2rem;
+}
+
 .profile__profile {
   background-color: white;
   margin: 0 auto;

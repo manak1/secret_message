@@ -27,7 +27,6 @@
           </div>
         </div>
 
-        
         <!-- End -->
         <div class="app__message flex item-center justify-between mt-10">
           <div class="app__guide">
@@ -56,7 +55,9 @@ export default {
     return {
       message: "",
       empty: false,
-      validKey: false
+      validKey: false,
+      baseKey:
+        "いz7んhつうvびwろおめごgぱcぉ6ひあじわぞeぐfらnxざaやもmとちょrどだま8oよたぃねぇずlゅぺけでふほぶはぼぴぽすさぎづき2ぅへむそっぷ14のjゆりてげdsがゃにぬくpぢえtべ5なれかyしbiをぜぁこみせばるk3uq9"
     };
   },
 
@@ -70,9 +71,7 @@ export default {
     encrypt(message) {
       let encryptedMessage = "";
       let messageChar = "";
-      let baseKey = Array.from(
-        "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをんがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょabcdefghijklmnopqrstuvwxyz"
-      );
+      let baseKey = Array.from(this.baseKey);
 
       for (let i = 0; i <= message.length - 1; i++) {
         messageChar = this.keyInfo.key[baseKey.indexOf(message.charAt(i))];
