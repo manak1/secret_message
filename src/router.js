@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import AboutPage from "./views/AboutPage.vue";
 import AppPage from "./views/AppPage.vue";
 import AppPage2 from './views/AppPage2.vue';
+import MyPage from './views/MyPage.vue';
 Vue.use(Router);
 export default new Router({
   mode: "history",
@@ -27,6 +28,11 @@ export default new Router({
       path: '/app2',
       name: 'app2',
       component: AppPage2
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: MyPage
     }
   ]
 });

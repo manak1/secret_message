@@ -41419,7 +41419,7 @@ input::placeholder {
   background-color: #fff;
 }
 
-.header__wrapper, .hero__wrapper, .app__wrapper, .about__wrapper, .cta__wrapper, .footer__wrapper {
+.header__wrapper, .hero__wrapper, .app__wrapper, .profile__wrapper, .about__wrapper, .cta__wrapper, .footer__wrapper {
   max-width: 960px;
   margin: 0 auto;
 }
@@ -41507,13 +41507,13 @@ input::placeholder {
   text-align: center;
 }
 
-.hero__wrapper, .app__wrapper {
+.hero__wrapper, .app__wrapper, .profile__wrapper {
   padding: 12rem 4rem 8rem 4rem;
 }
 
 @media (max-width: 690px) {
-  .hero__wrapper, .app__wrapper {
-    padding: 12rem 1rem 6rem 1rem;
+  .hero__wrapper, .app__wrapper, .profile__wrapper {
+    padding: 10rem 1rem 6rem 1rem;
   }
 }
 
@@ -41619,7 +41619,7 @@ input::placeholder {
     width: 80px;
     position: relative;
     font-size: 1rem;
-    left: -5px;
+    left: -20%;
   }
 }
 
@@ -41789,7 +41789,7 @@ input::placeholder {
 @media (max-width: 690px) {
   .cta__text {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 }
 
@@ -41863,6 +41863,10 @@ input::placeholder {
 .footer {
   background-color: #444444;
   color: white;
+}
+
+.footer__wrapper {
+  padding-bottom: 3rem;
 }
 
 @media (max-width: 690px) {
@@ -41957,8 +41961,46 @@ Fotter
 }
 
 @media (max-width: 690px) {
+  .app__wrapper, .profile__wrapper {
+    padding-top: 10rem;
+  }
+}
+
+@media (max-width: 690px) {
   .app__message {
     margin-top: 0;
+  }
+}
+
+.app__reply {
+  position: relative;
+}
+
+.app__reply:before {
+  content: '';
+  position: absolute;
+  border-left: 8px solid #eee;
+  border-bottom: 8px solid transparent;
+  border-top: 8px solid transparent;
+  border-left-color: #7ACC40;
+  -webkit-transform: rotateX(35deg);
+  transform: rotateX(35deg);
+  left: 85%;
+  top: 14%;
+}
+
+@media (max-width: 690px) {
+  .app__reply:before {
+    content: '';
+    position: absolute;
+    border-left: 8px solid #eee;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+    border-left-color: #7ACC40;
+    -webkit-transform: rotateX(35deg);
+    transform: rotateX(35deg);
+    left: 78%;
+    top: 14%;
   }
 }
 
@@ -41981,6 +42023,72 @@ Fotter
   .app__user-reply {
     font-size: 1.3rem;
   }
+}
+
+.profile {
+  background-image: url("../img/hero__wallpaper.jpg");
+}
+
+.profile__profile {
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+  padding: 2rem 0rem 6rem 0rem;
+  max-width: 700px;
+  text-align: center;
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+}
+
+.profile__img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  margin: 0 auto;
+}
+
+.profile__name {
+  font-size: 3rem;
+  margin-top: 10px;
+  color: #4B45B2;
+}
+
+.profile__des {
+  text-align: left;
+  font-size: 2rem;
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 10px;
+  color: #817CC9;
+  color: black;
+}
+
+.profile__bg {
+  padding: 2rem 2rem 0 2rem;
+}
+
+.profile__info {
+  margin-top: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+}
+
+.profile__icon {
+  color: #6C63FF;
+  font-size: 2rem;
+  margin-right: 20px;
+}
+
+.profile__key {
+  font-size: 2rem;
+  line-height: 2rem;
 }
 
 .mb-reset {

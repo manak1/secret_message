@@ -18,7 +18,7 @@
             <p class="header__user-name block">{{user.displayName}}</p>
             <ul class="center p-10">
               <li class="header__list">
-                <a href class="header__link">
+                <a href="/profile" class="header__link">
                   <i class="far fa-address-card header__card-icon mr-3"></i>マイページ
                 </a>
               </li>
@@ -68,6 +68,9 @@ export default {
     },
     logIn() {
       this.$store.commit("logIn");
+    },
+    close() {
+      this.clicked = false;
     }
   }
 };

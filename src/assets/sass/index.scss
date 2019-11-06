@@ -139,7 +139,7 @@ input::placeholder {
         @extend .header__wrapper;
 
         @include sm {
-            padding: 12rem 1rem 6rem 1rem;
+            padding: 10rem 1rem 6rem 1rem;
         }
     }
 
@@ -245,7 +245,7 @@ input::placeholder {
             width: 80px;
             position: relative;
             font-size: 1rem;
-            left: -5px;
+            left: -20%;
         }
     }
 
@@ -422,7 +422,7 @@ input::placeholder {
 
         @include sm {
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.9rem;
         }
 
     }
@@ -501,7 +501,7 @@ input::placeholder {
 
     &__wrapper {
         @extend .cta__wrapper;
-
+        padding-bottom: 3rem;
     }
 
     &__box {
@@ -616,9 +616,13 @@ Fotter
 
     &__wrapper {
         @extend .hero__wrapper;
+
+        @include sm {
+            padding-top: 10rem;
+
+        }
     }
 
-    &_messages {}
 
     &__message {
         @extend .about__answer;
@@ -636,6 +640,44 @@ Fotter
     &__title {
 
         @extend .hero__title;
+    }
+
+
+    &__reply {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            border-left: 8px solid #eee;
+            border-bottom: 8px solid transparent;
+            border-top: 8px solid transparent;
+            border-left-color: #7ACC40;
+            -webkit-transform: rotateX(35deg);
+            transform: rotateX(35deg);
+            left: 85%;
+            top: 14%;
+        }
+
+
+        @include sm {
+
+            &:before {
+
+                content: '';
+                position: absolute;
+                border-left: 8px solid #eee;
+                border-bottom: 8px solid transparent;
+                border-top: 8px solid transparent;
+                border-left-color: #7ACC40;
+                -webkit-transform: rotateX(35deg);
+                transform: rotateX(35deg);
+                left: 78%;
+                top: 14%;
+
+            }
+
+        }
     }
 
     &__icon {
@@ -690,6 +732,78 @@ Fotter
 
 
 }
+
+
+.profile {
+    background-image: url('../img/hero__wallpaper.jpg');
+
+    &__wrapper {
+
+        @extend .app__wrapper;
+
+    }
+
+    &__profile {
+        background-color: white;
+        margin: 0 auto;
+        border-radius: 2px;
+        box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+        padding: 2rem 0rem 6rem 0rem;
+        max-width: 700px;
+        text-align: center;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+
+    }
+
+    &__img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        margin: 0 auto;
+    }
+
+    &__name {
+        font-size: 3rem;
+        margin-top: 10px;
+        color: #4B45B2;
+    }
+
+    &__des {
+        text-align: left;
+        font-size: 2rem;
+        max-width: 80%;
+        margin: 0 auto;
+        margin-top: 10px;
+        color: #817CC9;
+        color: black;
+
+    }
+
+    &__bg {
+        padding: 2rem 2rem 0 2rem;
+    }
+
+    &__info {
+        margin-top: 20px;
+        justify-content: center;
+        vertical-align: middle;
+    }
+
+    &__icon {
+        color: #6C63FF;
+        font-size: 2rem;
+        margin-right: 20px;
+    }
+
+
+    &__key {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+}
+
 
 
 

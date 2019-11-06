@@ -26,6 +26,8 @@
             <p class="app__user-name mt2">{{user.displayName}}</p>
           </div>
         </div>
+
+        
         <!-- End -->
         <div class="app__message flex item-center justify-between mt-10">
           <div class="app__guide">
@@ -107,6 +109,12 @@ export default {
 @media only screen and (max-width: 690px) {
   .app__reply {
     margin-top: 0;
+  }
+
+  .app__user-reply {
+    padding: 3.2%;
+    font-size: 1.4rem;
+    border-radius: 18px;
   }
 }
 
