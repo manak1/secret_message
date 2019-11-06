@@ -14,7 +14,11 @@
         </a>
 
         <transition name="fade">
-          <div class="header__card shadow-outline absolute p-5" v-if="clicked">
+          <div
+            class="header__card shadow-outline absolute p-5"
+            v-click-outside="close"
+            v-if="clicked"
+          >
             <p class="header__user-name block">{{user.displayName}}</p>
             <ul class="center p-10">
               <li class="header__list">
@@ -47,13 +51,25 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import ClickOutside from "vue-click-outside";
+
 export default {
   computed: mapState(["user", "keyInfo"]),
   data: function() {
     return {
-      clicked: false
+      clicked: false,
+      opened: false
     };
   },
+
+  mounted() {
+    this.popupItem = this.$el;
+  },
+
+  directives: {
+    ClickOutside
+  },
+
   methods: {
     clickProfile() {
       console.log(this.keyInfo);
@@ -71,6 +87,14 @@ export default {
     },
     close() {
       this.clicked = false;
+    },
+
+    toggle() {
+      this.opened = true;
+    },
+
+    hide() {
+      this.opened = false;
     }
   }
 };

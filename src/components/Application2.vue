@@ -132,8 +132,14 @@ export default {
       );
 
       let messageChar = "";
+      let decoded = "";
       for (let i = 0; i < message.length; i++) {
-        messageChar += baseKey[this.decryptKey.indexOf(message.charAt(i))];
+        decoded = baseKey[this.decryptKey.indexOf(message.charAt(i))];
+        if (decoded == undefined) {
+          messageChar += message[i];
+        } else {
+          messageChar += baseKey[this.decryptKey.indexOf(message.charAt(i))];
+        }
       }
 
       return messageChar;

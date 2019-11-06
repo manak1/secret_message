@@ -4,11 +4,7 @@
       <div class="profile__profile">
         <div class="profile__box r">
           <div class="profile__bg">
-            <img
-              class="profile__img"
-              :src="this.user.photoURL.replace('normal','bigger')"
-              alt="icon of user"
-            />
+            <img class="profile__img" :src="modifyImg()" alt="icon of user" />
           </div>
         </div>
         <p class="profile__name text-cente">{{this.user.displayName}}</p>
@@ -53,6 +49,11 @@ export default {
     getRandomDescription() {
       let randomNum = Math.random() * 3;
       return Math.floor(randomNum);
+    },
+    modifyImg() {
+      if (this.user.photoURL != undefined) {
+        return this.user.photoURL.replace("normal", "bigger");
+      }
     }
   }
 };

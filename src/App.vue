@@ -18,7 +18,6 @@ export default {
   computed: mapState(["messages"]),
   data() {
     return {
-      chat: ["a"],
       baseKey: [
         "いz7んhつうvびwろおめごgぱcぉ6ひあじわぞeぐfらnxざaやもmとちょrどだま8oよたぃねぇずlゅぺけでふほぶはぼぴぽすさぎづき2ぅへむそっぷ14のjゆりてげdsがゃにぬくpぢえtべ5なれかyしbiをぜぁこみせばるk3uq9"
       ],
@@ -145,9 +144,5 @@ export default {
     }
   }
 };
-
-/* 
-
-*/
 </script>
 
