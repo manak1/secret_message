@@ -3,9 +3,9 @@
     <div class="header__wrapper flex items-center justify-between">
       <h1 class="header__logo flex items-center">
         <img src="../assets/img/header__logo1.png" class="h-16 mr-2" alt />
-        <a href="/" class="header__link">
+        <router-link to="/" class="header__link">
           <img src="../assets/img/logo.png" class="header__logo-img" alt />
-        </a>
+        </router-link>
       </h1>
 
       <div v-if="user" class="header__icon relative">
@@ -22,19 +22,19 @@
             <p class="header__user-name block">{{user.displayName}}</p>
             <ul class="center p-10">
               <li class="header__list">
-                <a href="/profile" class="header__link">
+                <router-link to="profile" class="header__link">
                   <i class="far fa-address-card header__card-icon mr-3"></i>マイページ
-                </a>
+                </router-link>
               </li>
               <li class="mt-5 header__list">
-                <a href="/app" class="header__link">
+                <router-link to="app" class="header__link">
                   <i class="fas fa-lock mr-3 header__card-icon"></i>暗号研究所へ
-                </a>
+                </router-link>
               </li>
               <li class="mt-5 header__list">
-                <a href="/app2" class="header__link">
+                <router-link to="app2" class="header__link">
                   <i class="fas fa-key mr-3 header__card-icon"></i>解読研究所へ
-                </a>
+                </router-link>
               </li>
             </ul>
 

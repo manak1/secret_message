@@ -13,6 +13,7 @@ import firebase from "firebase";
 import Header from "@/components/Header.vue";
 import Preloader from "@/components/Preloader.vue";
 import { mapState, mapMutations } from "vuex";
+
 export default {
   components: { Header, Preloader },
   computed: mapState(["messages"]),

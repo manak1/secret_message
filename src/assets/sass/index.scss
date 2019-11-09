@@ -4,6 +4,10 @@
 $smartPhone:'690px';
 
 
+textarea:focus,
+input:focus {
+    outline: none;
+}
 
 @mixin sm {
     @media (max-width:($smartPhone)) {
@@ -303,6 +307,19 @@ input::placeholder {
         }
     }
 
+    &__answer-answer2 {
+        background-color: transparent;
+        padding-top: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+
+        &:before {
+            display: none;
+
+        }
+
+    }
+
     &__user-question {
         width: 85%;
         padding: 3%;
@@ -328,6 +345,18 @@ input::placeholder {
             right: -8px;
             -webkit-transform: rotateX(35deg);
             transform: rotateX(35deg);
+        }
+    }
+
+    &__img {
+        max-width: 100%;
+        width: 60%;
+        height: auto;
+        border-radius: 10px;
+
+
+        @include sm {
+            width: 100%;
         }
     }
 }
@@ -560,6 +589,7 @@ input::placeholder {
         font-size: 1.3rem;
         margin-top: 10px;
         line-height: 1.7;
+        text-align: left;
     }
 
 
@@ -608,6 +638,13 @@ Fotter
     transition: .3s;
 
 }
+
+.footer__sns-list li:nth-child(4):hover {
+    color: #00A4BB;
+    transition: .3s;
+
+}
+
 
 
 .app {
@@ -677,6 +714,14 @@ Fotter
 
             }
 
+        }
+    }
+
+    &__reply2 {
+        @extend .app__reply;
+
+        &:before {
+            display: none;
         }
     }
 

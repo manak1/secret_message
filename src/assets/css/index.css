@@ -41387,6 +41387,11 @@ video {
 }
 
 /* break points */
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 html,
 body {
   font-size: 62.5%;
@@ -41635,7 +41640,7 @@ input::placeholder {
 }
 
 @media (max-width: 690px) {
-  .about__question-guest, .about__answer, .app__message, .app__message-txt, .app__reply {
+  .about__question-guest, .about__answer, .app__message, .app__message-txt, .app__reply, .app__reply2 {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
@@ -41673,6 +41678,17 @@ input::placeholder {
   left: -7px;
 }
 
+.about__answer-answer2 {
+  background-color: transparent;
+  padding-top: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.about__answer-answer2:before {
+  display: none;
+}
+
 .about__user-question, .app__user-reply {
   width: 85%;
   padding: 3%;
@@ -41701,6 +41717,19 @@ input::placeholder {
   right: -8px;
   -webkit-transform: rotateX(35deg);
   transform: rotateX(35deg);
+}
+
+.about__img {
+  max-width: 100%;
+  width: 60%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 690px) {
+  .about__img {
+    width: 100%;
+  }
 }
 
 .cta__box {
@@ -41923,6 +41952,7 @@ input::placeholder {
   font-size: 1.3rem;
   margin-top: 10px;
   line-height: 1.7;
+  text-align: left;
 }
 
 .footer__copyright {
@@ -41955,6 +41985,12 @@ Fotter
   transition: .3s;
 }
 
+.footer__sns-list li:nth-child(4):hover {
+  color: #00A4BB;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
 .app {
   text-align: center;
   background-image: url("../img/hero__wallpaper.jpg");
@@ -41972,11 +42008,11 @@ Fotter
   }
 }
 
-.app__reply {
+.app__reply, .app__reply2 {
   position: relative;
 }
 
-.app__reply:before {
+.app__reply:before, .app__reply2:before {
   content: '';
   position: absolute;
   border-left: 8px solid #eee;
@@ -41990,7 +42026,7 @@ Fotter
 }
 
 @media (max-width: 690px) {
-  .app__reply:before {
+  .app__reply:before, .app__reply2:before {
     content: '';
     position: absolute;
     border-left: 8px solid #eee;
@@ -42002,6 +42038,10 @@ Fotter
     left: 78%;
     top: 14%;
   }
+}
+
+.app__reply2:before {
+  display: none;
 }
 
 .app__icon {

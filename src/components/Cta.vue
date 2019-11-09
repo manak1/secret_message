@@ -6,10 +6,10 @@
         <div class="cta__item flex items-center">
           <img src="../assets/img/cta__icon1.png" class="cta__icon" alt />
           <div class="cta__text-box">
-            <p class="cta__text text-left">友達と意識高めの暗号会話を楽しむ</p>
+            <p class="cta__text text-left">友達と暗号会話を楽しむ</p>
             <p class="cta__subtext text-left">
-              友達とのやり取りが誰かに盗み見られているかもしれない...
-              そんな不安感に襲われたことはありませんか？思い切ってメッセージを暗号化しちゃいましょう！
+              子供の頃に友達と暗号で会話してみたいと思ったことはありませんか？
+              アンゴウメッセはそんな貴方の幼き頃の夢を叶えます。
             </p>
           </div>
         </div>
@@ -35,16 +35,29 @@
     </div>
     <div class="cta__cta">
       <p class="cta__call mt-20">ね？ 楽しそうでしょう？</p>
-      <a href class="cta__btn mt-10">さっそく使ってみる</a>
-      <!--     <strong class="cta__message mt-4">仕組みが分かればメッセージがばれてしまうので情報のやり取りには注意してね！</strong>
-      -->
+      <a @click.prevent="jumpApp()" class="cta__btn mt-10">さっそく使ってみる</a>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+import firebase from "firebase";
+import { mapState, mapMutations } from "vuex";
+export default {
+  computed: mapState(["user"]),
+  methods: {
+    doLogIn() {
+      const provider = new firebase.auth.TwitterAuthProvider();
+      firebase.auth().signInWithPopup(provider);
+    },
+    jumpApp() {
+      if (this.user) {
+        this.$router.push({ path: "app" });
+      } else {
+        this.doLogIn();
+      }
+    }
+  }
+};
 </script>
 
-<style lang="scss" scoped>
-</style>

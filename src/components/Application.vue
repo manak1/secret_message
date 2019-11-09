@@ -14,15 +14,21 @@
               暗号研究所へようこそ！ここではメッセージの暗号化を行っているぞ！
               <br />君の解読キーは
               <span style="color:red">{{keyInfo.code}}</span>だよ～ メッセージを呼んでほしい相手に教えてね
+              暗号化されたメッセージはタップ,クリックでコピーできるよ！
             </p>
           </div>
         </div>
 
         <div class="app__reply flex item-center justify-between mt-10">
-          <input v-model="message" placeholder="ここに暗号化したいメッセージを入力" class="app__user-reply" />
+          <input
+            v-model="message"
+            placeholder="暗号化したいメッセージを入力"
+            @focus="message=''"
+            class="app__user-reply"
+          />
 
           <div class="app__user">
-            <img :src="user.photoURL" alt class="app__icon rounded-full" />
+            <img :src="modifyImg()" alt class="app__icon rounded-full" />
             <p class="app__user-name mt2">{{user.displayName}}</p>
           </div>
         </div>
@@ -35,8 +41,12 @@
           </div>
 
           <div class="app__message-content">
-            <p class="app__message-txt" v-if="message">{{this.encrypt(this.message)}}</p>
-            <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
+            <a @click.prevent="copyMessage()">
+              <a href @click.prevent="copyMessage()" v-if="message">
+                <p class="app__message-txt" id="encryptedMessage">{{this.encrypt(this.message)}}</p>
+              </a>
+              <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
+            </a>
           </div>
         </div>
 
@@ -67,6 +77,12 @@ export default {
         this.$router.push({ name: "home" });
       }
     },
+    modifyImg() {
+      if (this.user.photoURL != undefined) {
+        return this.user.photoURL.replace("normal", "bigger");
+      }
+    },
+
     //encrypt message based on key info.
     encrypt(message) {
       let encryptedMessage = "";
@@ -85,9 +101,19 @@ export default {
       for (let j = 0; j <= message.length - 1; j++) {
         messageChar += baseKey[this.keyInfo.key.indexOf(message.charAt(j))];
       }
-      console.log("your text is ", messageChar);
-
       return encryptedMessage;
+    },
+
+    copyMessage() {
+      let messageToCopy = document.getElementById("encryptedMessage").innerHTML;
+
+      // 求）TextNodeのスマートな取得方法
+      let textarea = document.createElement("textarea");
+      textarea.value = messageToCopy;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
     }
   },
   //check user info when created.

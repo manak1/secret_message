@@ -29,6 +29,19 @@
       </div>
       <!-- End of answer -->
 
+      <!-- Start of answer -->
+      <div class="about__answer flex item-center justify-between">
+        <div class="about__user">
+          <img src="../assets/img/about__icon2.svg" alt class="about__icon rounded-full" />
+          <p class="about__user-name mt-2">雇われペンギン</p>
+        </div>
+
+        <div class="about__answer-answer about__answer-answer2">
+          <img class="about__img" src="../assets/img/about__img.jpg" alt />
+        </div>
+      </div>
+      <!-- End of answer -->
+
       <!-- Start of question -->
       <div class="about__question-guest flex item-center justify-between">
         <div class="about__user-question">

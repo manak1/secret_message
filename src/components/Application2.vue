@@ -29,7 +29,10 @@
           </div>
         </transition>
 
-        <div v-if="!validKey" class="app__reply flex items-baseline justify-center mx-auto mt-10">
+        <div
+          v-if="!validKey"
+          class="app__reply app__reply2 flex items-baseline justify-center mx-auto mt-10"
+        >
           <input
             type="password"
             v-model="key"

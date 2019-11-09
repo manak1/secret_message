@@ -6,14 +6,27 @@
       <p
         class="hero__txt 　max-w-sm mt-10"
       >アンゴウメッセは手軽にメッセージを暗号化できるサービスです。単純な暗号法を利用しているので大切な情報は内緒のままでお願いします</p>
-
-      <button onClick="location.href='/app'" class="hero__btn mt-16">ためしてみる</button>
+      <button @click="doLogIn()" v-if="!user" class="hero__btn mt-16">ためしてみる</button>
+      <button @click="jumpApp()" v-else class="hero__btn mt-16">さっそく暗号化する！</button>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+import firebase from "firebase";
+import { mapState, mapMutations } from "vuex";
+export default {
+  computed: mapState(["user"]),
+  methods: {
+    doLogIn() {
+      const provider = new firebase.auth.TwitterAuthProvider();
+      firebase.auth().signInWithPopup(provider);
+    },
+    jumpApp() {
+      this.$router.push("app");
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
