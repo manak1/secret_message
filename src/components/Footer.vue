@@ -8,7 +8,7 @@
               <h3 class="footer__title">Links</h3>
             </li>
             <li class="footer__lists-item">
-              <router-link to="home" class="footer__link">ホーム</router-link>
+              <router-link to="/" class="footer__link">ホーム</router-link>
             </li>
             <li class="footer__lists-item">
               <router-link to="profile" class="footer__link">プロフィール</router-link>

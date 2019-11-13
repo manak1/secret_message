@@ -72,7 +72,7 @@
 
             <div class="app__message-content">
               <p class="app__message-txt" v-if="message">{{this.decrypt(this.message)}}</p>
-              <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
+              <p class="app__message-txt" v-else>解読は僕に任せて！</p>
             </div>
           </div>
         </transition>
@@ -129,7 +129,6 @@ export default {
         }
       });
     },
-
     //decrypt message based on the key
     decrypt(message) {
       let baseKey = Array.from(this.baseKey);
@@ -147,6 +146,7 @@ export default {
 
       return messageChar;
     }
+    
   },
   created() {
     this.checkLoginInfo();

@@ -852,6 +852,52 @@ Fotter
 
 
 
+.not-found {
+
+    &__wrapper {
+        @extend .hero__wrapper;
+        padding-bottom: 8.2rem;
+        text-align: center;
+    }
+
+    &__title {
+        @extend .hero__title;
+        color: #6C63FF;
+
+    }
+
+    &__img {
+        margin-top: 2rem;
+        text-align: center;
+        display: inline-block;
+        width: 30%;
+
+    }
+
+    &__text {
+        @extend .cta__text;
+        margin-top: 4rem;
+        font-size: 2rem;
+
+        @include sm {
+            font-size: 1.6rem;
+        }
+
+    }
+
+    &__newline {
+        display: none;
+
+        @include sm {
+            display: static;
+        }
+    }
+
+
+
+}
+
+
 
 .mb-reset {
     margin-bottom: 0;

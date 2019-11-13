@@ -46,7 +46,7 @@
                 <p class="app__message-txt" id="encryptedMessage">{{this.encrypt(this.message)}}</p>
               </a>
               <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
-            </a>
+           </a>
           </div>
         </div>
 

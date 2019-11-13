@@ -5,6 +5,7 @@ import AboutPage from "./views/AboutPage.vue";
 import AppPage from "./views/AppPage.vue";
 import AppPage2 from './views/AppPage2.vue';
 import MyPage from './views/MyPage.vue';
+import NotFound from './views/NotFound';
 Vue.use(Router);
 export default new Router({
   mode: "history",
@@ -33,6 +34,10 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: MyPage
+    },
+    {
+      path: '*',
+      component:NotFound
     }
   ]
 });
