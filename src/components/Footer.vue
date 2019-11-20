@@ -77,6 +77,7 @@ export default {
   methods: {
     logOut() {
       firebase.auth().signOut();
+      console.log("log out");
       this.$store.commit("setKeyInfo", " ");
     }
   }

@@ -41579,6 +41579,11 @@ input::placeholder {
   color: #6C63FF;
 }
 
+.hero__test-login:hover {
+  opacity: .8;
+  color: #6C63FF;
+}
+
 .about {
   font-family: 'Noto Sans JP', sans-serif;
   background-image: url("../img/about__wallpaper.jpg");

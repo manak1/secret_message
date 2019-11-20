@@ -73,8 +73,7 @@ export default {
 
   methods: {
     checkLoginInfo() {
-      console.log("emitted");
-      if (this.user == null && this.$store.state.testLogin != true) {
+      if (this.user == null) {
         this.$router.push({ name: "home" });
       }
     },

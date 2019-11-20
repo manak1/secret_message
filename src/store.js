@@ -36,6 +36,9 @@ export default new Vuex.Store({
         },
         updateTestLogin(state, payload) {
             state.testLogin = payload;
+        },
+        updateTestKeyInfo(state, payload) {
+            state.keyInfo = payload;
         }
 
     }

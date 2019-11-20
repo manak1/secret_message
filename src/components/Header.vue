@@ -72,7 +72,6 @@ export default {
 
   methods: {
     clickProfile() {
-      console.log(this.keyInfo);
       this.clicked = !this.clicked;
     },
     logOut() {

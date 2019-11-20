@@ -204,9 +204,12 @@ input::placeholder {
         font-size: 1.6rem;
         margin-top: 1.8rem;
         color: #6C63FF;
+
+        &:hover {
+            opacity: .8;
+            color: #6C63FF;
+        }
     }
-
-
 
 }
 
@@ -221,7 +224,6 @@ input::placeholder {
         @extend .header__wrapper;
         text-align: center;
         padding-bottom: 0;
-
 
         @include sm {
             padding: 4rem .5rem 6rem .5rem;

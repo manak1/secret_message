@@ -41,7 +41,6 @@ export default {
     user: function() {
       /* To access variables in vue*/
       let self = this;
-      console.log("checking user info", this.user);
       /* If the user is looged in try to get data */
       if (this.user.uid != undefined) {
         const docRef = firebase
@@ -107,7 +106,6 @@ export default {
 
     /* Log out user update user data in store */
     doLogout() {
-      console.log("i will sign out");
       firebase.auth().signOut();
       this.$store.commit("setKeyInfo", " ");
     },
