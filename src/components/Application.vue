@@ -46,7 +46,7 @@
                 <p class="app__message-txt" id="encryptedMessage">{{this.encrypt(this.message)}}</p>
               </a>
               <p class="app__message-txt" v-else>暗号化は僕に任せて！</p>
-           </a>
+            </a>
           </div>
         </div>
 
@@ -73,7 +73,8 @@ export default {
 
   methods: {
     checkLoginInfo() {
-      if (this.user == null) {
+      console.log("emitted");
+      if (this.user == null && this.$store.state.testLogin != true) {
         this.$router.push({ name: "home" });
       }
     },

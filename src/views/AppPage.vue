@@ -40,9 +40,9 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
       this.user = user ? user : false;
       this.$store.commit("updateloginInfo", user);
-
       /*       const ref_message = firebase.database().ref("message"); */
     });
+
     if (!this.user) {
       console.log("router challenge");
       this.$router.push({ name: "home" });

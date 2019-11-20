@@ -41396,6 +41396,7 @@ html,
 body {
   font-size: 62.5%;
   font-family: 'Noto Sans JP', sans-serif;
+  background-color: #444444;
 }
 
 input::-webkit-input-placeholder {
@@ -41571,6 +41572,13 @@ input::placeholder {
   }
 }
 
+.hero__test-login {
+  display: block;
+  font-size: 1.6rem;
+  margin-top: 1.8rem;
+  color: #6C63FF;
+}
+
 .about {
   font-family: 'Noto Sans JP', sans-serif;
   background-image: url("../img/about__wallpaper.jpg");
@@ -41730,6 +41738,10 @@ input::placeholder {
   .about__img {
     width: 100%;
   }
+}
+
+.cta {
+  background-color: #fff;
 }
 
 .cta__box {
@@ -42133,6 +42145,10 @@ Fotter
 .profile__key {
   font-size: 2rem;
   line-height: 2rem;
+}
+
+.not-found {
+  background-color: #fff;
 }
 
 .not-found__wrapper {

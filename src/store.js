@@ -7,15 +7,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         user: {},
-        messages: "hello",
         keyInfo: {},
-        baseKey: []
+        baseKey: [],
+        testLogin: false
     },
 
     mutations: {
         //update user state
         updateloginInfo(state, payload) {
-
             state.user = payload;
         },
 
@@ -34,6 +33,9 @@ export default new Vuex.Store({
         setKeyInfo(state, payload) {
             state.keyInfo = payload;
 
+        },
+        updateTestLogin(state, payload) {
+            state.testLogin = payload;
         }
 
     }

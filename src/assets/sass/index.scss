@@ -20,6 +20,7 @@ html,
 body {
     font-size: 62.5%;
     font-family: 'Noto Sans JP', sans-serif;
+    background-color: #444444;
 }
 
 input::placeholder {
@@ -81,6 +82,7 @@ input::placeholder {
         border-radius: 10px;
         box-shadow: 0 0 0 1px #E5E5E5;
     }
+
 
     &__user-name {
         font-size: 1.6rem;
@@ -195,6 +197,14 @@ input::placeholder {
         }
     }
 
+
+    &__test-login {
+
+        display: block;
+        font-size: 1.6rem;
+        margin-top: 1.8rem;
+        color: #6C63FF;
+    }
 
 
 
@@ -363,6 +373,8 @@ input::placeholder {
 
 
 .cta {
+
+    background-color: #fff;
 
     &__box {
         padding-top: 0;
@@ -849,10 +861,8 @@ Fotter
     }
 }
 
-
-
-
 .not-found {
+    background-color: #fff;
 
     &__wrapper {
         @extend .hero__wrapper;
