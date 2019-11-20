@@ -6,5 +6,5 @@ Vue.jsの勉強用に作成したウェブアプリケーションです。
 今の所一緒に遊んでくれる友達はまだ見つかっていません...
 シーザー暗号法を少し改良した暗号法を使っているので、  情報を保護する目的での使用はお勧めできないです。  
 
-動作確認URL:https://angoumesse.fun
+動作確認URL:https://angoumesse.fun  
 github:https://github.com/manak1/secret_message
